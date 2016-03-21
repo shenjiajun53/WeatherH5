@@ -11,6 +11,8 @@ function onInit() {
     //getMyLocation();
     var locateBt = document.getElementById("locate_button");
     locateBt.onclick = locationOnclick;
+
+    var searchText=document.getElementById("");
 }
 
 function locationOnclick() {
