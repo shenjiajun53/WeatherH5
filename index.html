@@ -28,49 +28,62 @@
     </div>
 </nav>
 
-<ul class="collapsible" data-collapsible="accordion">
-    <li>
-        <div class="collapsible-header"><i class="material-icons">filter_drama</i>First</div>
-        <div class="collapsible-body"><p>Lorem ipsum dolor sit amet.</p></div>
-    </li>
-    <li>
-        <div class="collapsible-header"><i class="material-icons">place</i>Second</div>
-        <div class="collapsible-body"><p>Lorem ipsum dolor sit amet.</p></div>
-    </li>
-    <li>
-        <div class="collapsible-header"><i class="material-icons">whatshot</i>Third</div>
-        <div class="collapsible-body"><p>Lorem ipsum dolor sit amet.</p></div>
-    </li>
-</ul>
 
-
-
-<div class="row">
-    <div class="col s12 m9 l10">
-        <div id="introduction" class="section scrollspy">
-            <p>Content </p>
-        </div>
-
-        <div id="structure" class="section scrollspy">
-            <p>Content </p>
-        </div>
-
-        <div id="initialization" class="section scrollspy">
-            <p>Content </p>
-        </div>
-    </div>
-    <div class="col hide-on-small-only m3 l2">
-        <ul class="section table-of-contents">
-            <li><a href="#introduction">Introduction</a></li>
-            <li><a href="#structure">Structure</a></li>
-            <li><a href="#initialization">Intialization</a></li>
-        </ul>
-    </div>
+<div class="card container">
+    <ul class="collapsible" data-collapsible="accordion">
+        <li>
+            <div class="collapsible-header">
+                <p id="current_temp" class="left">14</p>
+                <p class="center">
+                    <span id="current_phrase">Cloundy</span>
+                    <br>
+                    <span id="city_name">Shanghai</span>
+                </p>
+            </div>
+            <div class="collapsible-body">
+                <table>
+                    <tr>
+                        <td>
+                            <div id="temper_high_div" class="center">
+                                <div>High</div>
+                                <img src="res/drawable-hdpi/currnet_high_b.png">
+                                <div id="temp_high_value">18</div>
+                            </div>
+                        </td>
+                        <td>
+                            <div id="temper_low_div" class="center">
+                                <div>Low</div>
+                                <img src="res/drawable-hdpi/currnet_low_b.png">
+                                <div id="temper_low_value">18</div>
+                            </div>
+                        </td>
+                        <td>
+                            <div id="precipitation_div" class="center">
+                                <div>Precipitation</div>
+                                <img src="res/drawable-hdpi/currnet_preciptation_b.png">
+                                <div id="precipitation_value">18</div>
+                            </div>
+                        </td>
+                        <td>
+                            <div id="humidity_div" class="center">
+                                <div>Humidity</div>
+                                <img src="res/drawable-hdpi/currnet_humidity_b.png">
+                                <div id="humidity_value">18</div>
+                            </div>
+                        </td>
+                    </tr>
+                </table>
+            </div>
+        </li>
+    </ul>
 </div>
+
+<p id="console_p"></p>
 
 <!--  Scripts-->
 <script src="https://code.jquery.com/jquery-2.1.1.min.js"></script>
 <script src="materialize/js/materialize.js"></script>
+<script src="js/Utils.js"></script>
 <script src="js/init.js"></script>
 </body>
 </html>
