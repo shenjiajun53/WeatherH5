@@ -9,7 +9,9 @@ window.onload = onInit;
 
 var lang = "zh-CN";
 
-var currentTemp, currentPhrase, cityname, tempHighValue, tempLowValue, precipitationValue, humidityValue;
+var currentTemp, currentPhrase, cityname,
+    tempHighValue, tempLowValue, precipitationValue, humidityValue,
+    visibilityValue, pressureValue, windValue, uvValue;
 
 function onInit() {
     //alert("on init");
@@ -29,18 +31,24 @@ function onInit() {
     tempLowValue = document.getElementById("temper_low_value");
     precipitationValue = document.getElementById("precipitation_value");
     humidityValue = document.getElementById("humidity_value");
+    visibilityValue = document.getElementById("visibility_value");
+    pressureValue = document.getElementById("wind_value");
+    windValue = document.getElementById("pressure_value");
+    uvValue = document.getElementById("uv_index_value");
 
     getCityInfo();
 }
 
 function getCityInfo() {
     var cityInfo = localStorage.getItem("locate_city");
+    console.error(cityInfo);
     if (null != cityInfo && "" != cityInfo) {
-        cityBean = JSON.parse(cityInfo);
-        var firstCity = cityBean.addresses[0];
+        addressBean = JSON.parse(cityInfo);
+        console.error(JSON.stringify(addressBean));
+        //var firstCity = cityBean.addresses[0];
         //alert(firstCity.locality);
-        cityname.innerHTML = firstCity.locality;
-        getCurrentWeather(firstCity.latitude, firstCity.longitude);
+        cityname.innerHTML = addressBean.locality;
+        getCurrentWeather(addressBean.latitude, addressBean.longitude);
     }
 }
 
@@ -55,12 +63,16 @@ function getCurrentWeather(lantitude, longitude) {
             currentWeatherBean = JSON.parse(request.responseText);
             var observation = currentWeatherBean.observation;
             var metric = observation.metric;
-            currentTemp.innerHTML = metric.temp;
+            currentTemp.innerHTML = metric.temp + "℃";
             currentPhrase.innerHTML = observation.phrase_32char;
-            tempHighValue.innerHTML = metric.temp_max_24hour;
-            tempLowValue.innerHTML = metric.temp_min_24hour;
-            precipitationValue.innerHTML = metric.precip_24hour;
-            humidityValue.innerHTML = metric.rh;
+            tempHighValue.innerHTML = metric.temp_max_24hour + "℃";
+            tempLowValue.innerHTML = metric.temp_min_24hour + "℃";
+            precipitationValue.innerHTML = metric.precip_24hour + "mm";
+            humidityValue.innerHTML = metric.rh + "%";
+            visibilityValue.innerHTML = metric.vis + "km";
+            windValue.innerHTML = metric.wspd + "km/h";
+            pressureValue.innerHTML = metric.mslp + "pa";
+            uvValue.innerHTML = observation.uv_index;
         }
     }
     request.open("GET", url);

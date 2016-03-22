@@ -16,24 +16,30 @@ function buildUrl(url, parameters) {
 }
 
 function currentWeatherUrl(lantitude, longitude, lang) {
-    return "http://api.weather.com/v1/" + "geocode/" + lantitude + "/" + longitude + "/" + "observations/current.json?apiKey=" + APIKEY + "&language=" + lang + "&units=m";
+    var url = "http://api.weather.com/v1/" + "geocode/" + lantitude + "/" + longitude + "/" + "observations/current.json?apiKey=" + APIKEY + "&language=" + lang + "&units=m";
+    return encodeURI(url);
 }
 
 function forcastHourlyWeatherUrl(lantitude, longitude, lang) {
-    return "http://api.weather.com/v1/" + "geocode/" + lantitude + "/" + longitude + "/" + "forecast/hourly/24hour.json?apiKey=" + APIKEY + "&language=" + lang + "&units=m";
+    var url = "http://api.weather.com/v1/" + "geocode/" + lantitude + "/" + longitude + "/" + "forecast/hourly/24hour.json?apiKey=" + APIKEY + "&language=" + lang + "&units=m";
+    return encodeURI(url);
 }
 
 function forecastDailyWeatherUrl(lantitude, longitude, lang) {
-    return "http://api.weather.com/v1/" + "geocode/" + lantitude + "/" + longitude + "/" + "forecast/daily/5day.json?apiKey=" + APIKEY + "&language=" + lang + "&units=m";
+    var url = "http://api.weather.com/v1/" + "geocode/" + lantitude + "/" + longitude + "/" + "forecast/daily/5day.json?apiKey=" + APIKEY + "&language=" + lang + "&units=m";
+    return encodeURI(url);
 }
 
 
 function findCityByGeoLocation(geolocation, lang, withLang) {
-    return "http://api.weather.com/v2/location?" + "geocode=" + geolocation + "&language=" + lang + "&format=" + "json" + "&apiKey=" + APIKEY;
+    var url = "http://api.weather.com/v2/location?" + "geocode=" + geolocation + "&language=" + lang + "&format=" + "json" + "&apiKey=" + APIKEY;
+    return encodeURI(url);
 }
 
 function findCityByName(name, lang, withLang) {
-    return "http://api.weather.com/v2/location?" + "address=" + name + "&language=" + lang + "&format=" + "json" + "&apiKey=" + APIKEY;
+    var url = "http://api.weather.com/v2/location?" + "address=" + name + "&language=" + lang + "&format=" + "json" + "&apiKey=" + APIKEY;
+    var temp = "http://api.weather.com/v2/location?address=%E4%B8%8A%E6%B5%B7&language=zh-CN&format=json&apiKey=0efd9b4f14275d37789a2f57e5101852";
+    return encodeURI(url);
 }
 
 
@@ -58,6 +64,16 @@ var cityBean = {
         "country": "中华人民共和国",
         "country_code": "CN"
     }]
+};
+
+var addressBean = {
+    "latitude": 31.22,
+    "longitude": 121.54,
+    "address": "丁香路",
+    "locality": "浦东新区",
+    "admin_district": "上海市",
+    "country": "中华人民共和国",
+    "country_code": "CN"
 };
 
 var currentWeatherBean = {

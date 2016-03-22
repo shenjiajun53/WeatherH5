@@ -11,19 +11,25 @@
 <div>
     <nav>
         <div class="nav-wrapper">
-            <form>
+            <form onsubmit="return false;">
                 <!--<div class="input-field">-->
                 <!--<input id="search" type="search" required>-->
                 <!--<label for="search"><i class="material-icons">search</i></label>-->
                 <!--<span class="material-icons" id="search_button">search</span>-->
                 <!--</div>-->
-
+                <!--<input type="text" name="txt" value="Hello" onchange="alert(this.value)">-->
                 <input id="search_text" type="search" required>
-                <label for="search_text"><i class="material-icons">search</i></label>
-                <i class="material-icons" id="search_button">search</i>
+                <!--<label for="search_text"><i class="material-icons">search</i></label>-->
+                <!--<i class="material-icons" id="search_button">search</i>-->
             </form>
         </div>
     </nav>
+</div>
+
+<div>
+    <ul id="search_result_list">
+
+    </ul>
 </div>
 
 <div class="fixed-action-btn" style="bottom: 45px; right: 24px;">
