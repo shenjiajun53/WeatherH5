@@ -100,6 +100,8 @@ function getHourlyWeather(lantitude, longitude) {
             hourlyWeatherBean = JSON.parse(request.responseText);
             var hourlyForecast = hourlyWeatherBean.forecasts;
             houlyTable = document.getElementById("hourly_table");
+            var tableBody = document.createElement("tbody");
+            houlyTable.appendChild(tableBody);
             var timeTr = document.createElement("tr");
             var iconTr = document.createElement("tr");
             var tempTr = document.createElement("tr");
@@ -125,9 +127,9 @@ function getHourlyWeather(lantitude, longitude) {
                 iconTr.appendChild(iconTd);
                 tempTr.appendChild(tempTd);
             }
-            houlyTable.appendChild(timeTr);
-            houlyTable.appendChild(iconTr);
-            houlyTable.appendChild(tempTr);
+            tableBody.appendChild(timeTr);
+            tableBody.appendChild(iconTr);
+            tableBody.appendChild(tempTr);
         }
     }
     request.open("GET", url);
@@ -170,16 +172,16 @@ function getDailyWeather(lantitude, longitude) {
                 iconDiv.setAttribute("class", "col-md-2 col-xs-2");
                 iconDiv.innerHTML = iconCode;
                 var phraseDiv = document.createElement("div");
-                phraseDiv.setAttribute("class", "col-md-2 col-xs-2");
+                phraseDiv.setAttribute("class", "col-md-5 col-xs-5");
                 phraseDiv.innerHTML = phrase;
                 var precipDiv = document.createElement("div");
-                precipDiv.setAttribute("class", "col-md-2 col-xs-2");
+                precipDiv.setAttribute("class", "col-md-1 col-xs-1");
                 precipDiv.innerHTML = precipitation;
                 var highDiv = document.createElement("div");
-                highDiv.setAttribute("class", "col-md-2 col-xs-2");
+                highDiv.setAttribute("class", "col-md-1 col-xs-1");
                 highDiv.innerHTML = maxTemp;
                 var lowDiv = document.createElement("div");
-                lowDiv.setAttribute("class", "col-md-2 col-xs-2");
+                lowDiv.setAttribute("class", "col-md-1 col-xs-1");
                 lowDiv.innerHTML = mintemp;
                 dailyItem.appendChild(weekDiv);
                 dailyItem.appendChild(iconDiv);
