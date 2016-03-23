@@ -13,6 +13,9 @@ var currentTemp, currentPhrase, cityname,
     tempHighValue, tempLowValue, precipitationValue, humidityValue,
     visibilityValue, pressureValue, windValue, uvValue;
 
+var houlyTable;
+
+var consoleP;
 function onInit() {
     //alert("on init");
     $(".button-collapse").sideNav();
@@ -36,6 +39,8 @@ function onInit() {
     windValue = document.getElementById("pressure_value");
     uvValue = document.getElementById("uv_index_value");
 
+    consoleP = document.getElementById("console_p");
+
     getCityInfo();
 }
 
@@ -49,6 +54,8 @@ function getCityInfo() {
         //alert(firstCity.locality);
         cityname.innerHTML = addressBean.locality;
         getCurrentWeather(addressBean.latitude, addressBean.longitude);
+        getHourlyWeather(addressBean.latitude, addressBean.longitude);
+        getDailyWeather(addressBean.latitude, addressBean.longitude);
     }
 }
 
@@ -73,6 +80,116 @@ function getCurrentWeather(lantitude, longitude) {
             windValue.innerHTML = metric.wspd + "km/h";
             pressureValue.innerHTML = metric.mslp + "pa";
             uvValue.innerHTML = observation.uv_index;
+        }
+    }
+    request.open("GET", url);
+    request.send(null);
+
+}
+
+function getHourlyWeather(lantitude, longitude) {
+    var url = forcastHourlyWeatherUrl(lantitude, longitude, lang);
+    var request = new XMLHttpRequest();
+    request.onload = function () {
+        if (request.status == 200) {
+            //var p = document.getElementById("console_p");
+            //p.innerHTML = request.responseText;
+            //console.info(request.responseText);
+            //consoleP.innerHTML = request.responseText;
+            //houlyTable.setAttribute("class", "responsive-table");
+            hourlyWeatherBean = JSON.parse(request.responseText);
+            var hourlyForecast = hourlyWeatherBean.forecasts;
+            houlyTable = document.getElementById("hourly_table");
+            var timeTr = document.createElement("tr");
+            var iconTr = document.createElement("tr");
+            var tempTr = document.createElement("tr");
+
+            for (var i = 0; i < hourlyForecast.length; i++) {
+                var time = hourlyForecast[i].fcst_valid_local;
+                if (null != time) {
+                    time = time.substring(11, 16);
+                }
+                var icon = hourlyForecast[i].icon_code;
+                var temp = hourlyForecast[i].temp;
+                var timeTd = document.createElement("td");
+                var iconTd = document.createElement("td");
+                var tempTd = document.createElement("td");
+                timeTd.setAttribute("class", "time_item");
+                iconTd.setAttribute("class", "time_item");
+                tempTd.setAttribute("class", "time_item");
+
+                timeTd.innerHTML = time;
+                iconTd.innerHTML = icon;
+                tempTd.innerHTML = temp + "℃";
+                timeTr.appendChild(timeTd);
+                iconTr.appendChild(iconTd);
+                tempTr.appendChild(tempTd);
+            }
+            houlyTable.appendChild(timeTr);
+            houlyTable.appendChild(iconTr);
+            houlyTable.appendChild(tempTr);
+        }
+    }
+    request.open("GET", url);
+    request.send(null);
+
+}
+
+function getDailyWeather(lantitude, longitude) {
+    var url = forecastDailyWeatherUrl(lantitude, longitude, lang);
+    var request = new XMLHttpRequest();
+    request.onload = function () {
+        if (request.status == 200) {
+            console.info(request.responseText);
+            //consoleP.innerHTML = request.responseText;
+            dailyWeatherBean = JSON.parse(request.responseText);
+            var dailyForecast = dailyWeatherBean.forecasts;
+            var dailul = document.getElementById("daily_ul");
+            for (var i = 1; i < dailyForecast.length; i++) {
+                var dailyLi = document.createElement("li");
+                var dailyItem = document.createElement("div");
+                dailyItem.setAttribute("class", "row");
+
+                var date = dailyForecast[i].fcst_valid_local;
+                if (null != date) {
+                    date = date.substring(0, 10);
+                }
+                var week = dailyForecast[i].dow;
+                var maxTemp = dailyForecast[i].max_temp;
+                var mintemp = dailyForecast[i].min_temp;
+
+                var dayObj = dailyForecast[i].day;
+                var phrase = dayObj.phrase_32char;
+                var iconCode = dayObj.icon_code;
+                var precipitation = dayObj.qpf;
+
+                var weekDiv = document.createElement("div");
+                weekDiv.setAttribute("class", "col-md-2 col-xs-2");
+                weekDiv.innerHTML = week;
+                var iconDiv = document.createElement("div");
+                iconDiv.setAttribute("class", "col-md-2 col-xs-2");
+                iconDiv.innerHTML = iconCode;
+                var phraseDiv = document.createElement("div");
+                phraseDiv.setAttribute("class", "col-md-2 col-xs-2");
+                phraseDiv.innerHTML = phrase;
+                var precipDiv = document.createElement("div");
+                precipDiv.setAttribute("class", "col-md-2 col-xs-2");
+                precipDiv.innerHTML = precipitation;
+                var highDiv = document.createElement("div");
+                highDiv.setAttribute("class", "col-md-2 col-xs-2");
+                highDiv.innerHTML = maxTemp;
+                var lowDiv = document.createElement("div");
+                lowDiv.setAttribute("class", "col-md-2 col-xs-2");
+                lowDiv.innerHTML = mintemp;
+                dailyItem.appendChild(weekDiv);
+                dailyItem.appendChild(iconDiv);
+                dailyItem.appendChild(phraseDiv);
+                dailyItem.appendChild(precipDiv);
+                dailyItem.appendChild(highDiv);
+                dailyItem.appendChild(lowDiv);
+                dailyLi.appendChild(dailyItem);
+                dailul.appendChild(dailyLi);
+            }
         }
     }
     request.open("GET", url);
