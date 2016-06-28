@@ -1,9 +1,19 @@
-.time_item {
-    margin: 10px;
+.daily-img {
+    height: 3rem;
 }
 
+.daily-li {
+    background-color: grey;
+    color: white;
+}
+
+
+/*.body-div{*/
+    /*background-color: #2aabd2;*/
+/*}*/
+
 /*.table-responsive > .table > tbody > tr > td, .table-responsive > .table > tbody > tr > th, .table-responsive > .table > tfoot > tr > td, .table-responsive > .table > tfoot > tr > th, .table-responsive > .table > thead > tr > td, .table-responsive > .table > thead > tr > th {*/
-    /*white-space: nowrap;*/
-    /*margin: 10px;*/
-    /*padding: 10px;*/
+/*white-space: nowrap;*/
+/*margin: 10px;*/
+/*padding: 10px;*/
 /*}*/

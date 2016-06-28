@@ -5,150 +5,155 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <title>Title</title>
-    <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
-    <link href="materialize/css/materialize.css" type="text/css" rel="stylesheet" media="screen,projection"/>
 
     <link href="bootstrap/css/bootstrap.min.css" rel="stylesheet">
+    <!--<link href="materialize-v0.97.6/materialize/css/materialize.min.css" rel="stylesheet">-->
+
     <link href="css/style.css" type="text/css" rel="stylesheet" media="screen,projection"/>
 </head>
-<body>
 
-<nav>
-    <div class="nav-wrapper">
-        <a href="#!" class="brand-logo">Logo</a>
-        <a href="#" data-activates="mobile-demo" class="button-collapse"><i class="material-icons">menu</i></a>
-        <ul class="right hide-on-med-and-down">
-            <li><a href="location.html">添加位置</a></li>
-            <li><a href="#">删除位置</a></li>
-            <li><a href="#">刷新</a></li>
-            <li><a href="#">设置</a></li>
+
+<body id="body-div" class="body-div">
+<div>
+    <nav class="navbar navbar-inverse">
+        <div class="container-fluid">
+            <div class="navbar-header">
+                <button type="button" class="navbar-toggle collapsed" data-toggle="collapse"
+                        data-target="#bs-example-navbar-collapse-1" aria-expanded="false">
+                    <span class="sr-only">Toggle navigation</span>
+                    <span class="icon-bar"></span>
+                    <span class="icon-bar"></span>
+                    <span class="icon-bar"></span>
+                </button>
+                <a class="navbar-brand" href="#">天气</a>
+            </div>
+            <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
+                <ul class="nav navbar-nav" id="mobile-demo">
+                    <li><a href="location.html">添加位置</a></li>
+                    <li><a href="#">删除位置</a></li>
+                    <li><a href="#">刷新</a></li>
+                    <li><a href="#">设置</a></li>
+                </ul>
+            </div>
+        </div>
+    </nav>
+
+    <div class="container ">
+        <div>
+            <p id="current_temp" class="text-center">14℃</p>
+            <p class="text-center">
+                <span id="current_phrase">Cloundy</span>
+                <br>
+                <span id="city_name">Shanghai</span>
+            </p>
+        </div>
+
+        <div class="row">
+            <div id="temper_high_div" class=" col-md-3 col-xs-6 text-center">
+                <div>High</div>
+                <img src="res/drawable-hdpi/currnet_high_b.png">
+                <div id="temp_high_value"></div>
+            </div>
+            <div id="temper_low_div" class=" col-md-3 col-xs-6 text-center">
+                <div>Low</div>
+                <img src="res/drawable-hdpi/currnet_low_b.png">
+                <div id="temper_low_value"></div>
+            </div>
+            <div id="precipitation_div" class=" col-md-3 col-xs-6 text-center">
+                <div>Precipitation</div>
+                <img src="res/drawable-hdpi/currnet_preciptation_b.png">
+                <div id="precipitation_value"></div>
+            </div>
+            <div id="humidity_div" class=" col-md-3 col-xs-6 text-center">
+                <div>Humidity</div>
+                <img src="res/drawable-hdpi/currnet_humidity_b.png">
+                <div id="humidity_value"></div>
+            </div>
+        </div>
+
+        <div class="row">
+            <div id="visibility_div" class=" col-md-3 col-xs-6 text-center">
+                <div>Visibility</div>
+                <img src="res/drawable-hdpi/currnet_visibility_b.png">
+                <div id="visibility_value"></div>
+            </div>
+            <div id="wind_div" class=" col-md-3 col-xs-6 text-center">
+                <div>Wind</div>
+                <img src="res/drawable-hdpi/currnet_wind_b.png">
+                <div id="wind_value"></div>
+            </div>
+            <div id="pressure_div" class=" col-md-3 col-xs-6 text-center">
+                <div>Pressure</div>
+                <img src="res/drawable-hdpi/currnet_pressure_b.png">
+                <div id="pressure_value"></div>
+            </div>
+            <div id="uv_index_div" class=" col-md-3 col-xs-6 text-center">
+                <div>UV</div>
+                <img src="res/drawable-hdpi/currnet_uv_b.png">
+                <div id="uv_index_value"></div>
+            </div>
+        </div>
+    </div>
+
+    <div class="container ">
+        <div class="table-responsive">
+            <table class="table table-striped" id="hourly_table">
+                <!--<tr class="center">-->
+                <!--<td>11:00</td>-->
+                <!--<td>11:00</td>-->
+                <!--<td>11:00</td>-->
+                <!--<td>11:00</td>-->
+                <!--<td>11:00</td>-->
+                <!--<td>11:00</td>-->
+                <!--<td>11:00</td>-->
+                <!--<td>11:00</td>-->
+                <!--<td>11:00</td>-->
+                <!--<td>11:00</td>-->
+                <!--<td>11:00</td>-->
+                <!--</tr>-->
+                <!--<tr class="center">-->
+                <!--<td>sunny</td>-->
+                <!--<td>sunny</td>-->
+                <!--<td>sunny</td>-->
+                <!--<td>sunny</td>-->
+                <!--<td>sunny</td>-->
+                <!--<td>sunny</td>-->
+                <!--<td>sunny</td>-->
+                <!--<td>sunny</td>-->
+                <!--<td>sunny</td>-->
+                <!--<td>sunny</td>-->
+                <!--<td>sunny</td>-->
+                <!--</tr>-->
+                <!--<tr class="center">-->
+                <!--<td>12</td>-->
+                <!--<td>12</td>-->
+                <!--<td>12</td>-->
+                <!--<td>12</td>-->
+                <!--<td>12</td>-->
+                <!--<td>12</td>-->
+                <!--<td>12</td>-->
+                <!--<td>12</td>-->
+                <!--<td>12</td>-->
+                <!--<td>12</td>-->
+                <!--</tr>-->
+            </table>
+        </div>
+    </div>
+
+    <div class="container ">
+        <ul id="daily_ul" class="list-unstyled">
         </ul>
-        <ul class="side-nav" id="mobile-demo">
-            <li><a href="location.html">添加位置</a></li>
-            <li><a href="#">删除位置</a></li>
-            <li><a href="#">刷新</a></li>
-            <li><a href="#">设置</a></li>
-        </ul>
-    </div>
-</nav>
-
-<div class="card container">
-    <div>
-        <p id="current_temp" class="left">14℃</p>
-        <p class="center">
-            <span id="current_phrase">Cloundy</span>
-            <br>
-            <span id="city_name">Shanghai</span>
-        </p>
-    </div>
-
-    <div class="row">
-        <div id="temper_high_div" class="center col-md-3 col-xs-3">
-            <div>High</div>
-            <img src="res/drawable-hdpi/currnet_high_b.png">
-            <div id="temp_high_value"></div>
-        </div>
-        <div id="temper_low_div" class="center col-md-3 col-xs-3">
-            <div>Low</div>
-            <img src="res/drawable-hdpi/currnet_low_b.png">
-            <div id="temper_low_value"></div>
-        </div>
-        <div id="precipitation_div" class="center col-md-3 col-xs-3">
-            <div>Precipitation</div>
-            <img src="res/drawable-hdpi/currnet_preciptation_b.png">
-            <div id="precipitation_value"></div>
-        </div>
-        <div id="humidity_div" class="center col-md-3 col-xs-3">
-            <div>Humidity</div>
-            <img src="res/drawable-hdpi/currnet_humidity_b.png">
-            <div id="humidity_value"></div>
-        </div>
-    </div>
-
-    <div class="row">
-        <div id="visibility_div" class="center col-md-3 col-xs-3">
-            <div>Visibility</div>
-            <img src="res/drawable-hdpi/currnet_visibility_b.png">
-            <div id="visibility_value"></div>
-        </div>
-        <div id="wind_div" class="center col-md-3 col-xs-3">
-            <div>Wind</div>
-            <img src="res/drawable-hdpi/currnet_wind_b.png">
-            <div id="wind_value"></div>
-        </div>
-        <div id="pressure_div" class="center col-md-3 col-xs-3">
-            <div>Pressure</div>
-            <img src="res/drawable-hdpi/currnet_pressure_b.png">
-            <div id="pressure_value"></div>
-        </div>
-        <div id="uv_index_div" class="center col-md-3 col-xs-3">
-            <div>UV</div>
-            <img src="res/drawable-hdpi/currnet_uv_b.png">
-            <div id="uv_index_value"></div>
-        </div>
     </div>
 </div>
-
-<div class="card container">
-    <div class="table-responsive">
-        <table class="table" id="hourly_table">
-            <!--<tr class="center">-->
-            <!--<td>11:00</td>-->
-            <!--<td>11:00</td>-->
-            <!--<td>11:00</td>-->
-            <!--<td>11:00</td>-->
-            <!--<td>11:00</td>-->
-            <!--<td>11:00</td>-->
-            <!--<td>11:00</td>-->
-            <!--<td>11:00</td>-->
-            <!--<td>11:00</td>-->
-            <!--<td>11:00</td>-->
-            <!--<td>11:00</td>-->
-            <!--</tr>-->
-            <!--<tr class="center">-->
-            <!--<td>sunny</td>-->
-            <!--<td>sunny</td>-->
-            <!--<td>sunny</td>-->
-            <!--<td>sunny</td>-->
-            <!--<td>sunny</td>-->
-            <!--<td>sunny</td>-->
-            <!--<td>sunny</td>-->
-            <!--<td>sunny</td>-->
-            <!--<td>sunny</td>-->
-            <!--<td>sunny</td>-->
-            <!--<td>sunny</td>-->
-            <!--</tr>-->
-            <!--<tr class="center">-->
-            <!--<td>12</td>-->
-            <!--<td>12</td>-->
-            <!--<td>12</td>-->
-            <!--<td>12</td>-->
-            <!--<td>12</td>-->
-            <!--<td>12</td>-->
-            <!--<td>12</td>-->
-            <!--<td>12</td>-->
-            <!--<td>12</td>-->
-            <!--<td>12</td>-->
-            <!--</tr>-->
-        </table>
-    </div>
-</div>
-
-<div class="card container">
-    <ul id="daily_ul">
-    </ul>
-</div>
-
 <p id="console_p"></p>
 
 <!--  Scripts-->
 <!-- jQuery (necessary for Bootstrap's JavaScript plugins) -->
 <script src="//cdn.bootcss.com/jquery/1.11.3/jquery.min.js"></script>
+<script src="//cdn.bootcss.com/bootstrap/3.3.5/js/bootstrap.min.js"></script>
 <!--<script src="https://code.jquery.com/jquery-2.1.1.min.js"></script>-->
-<script src="materialize/js/materialize.js"></script>
 <script src="js/Utils.js"></script>
 <script src="js/init.js"></script>
 <!-- Include all compiled plugins (below), or include individual files as needed -->
-<script src="bootstrap/js/bootstrap.min.js"></script>
 </body>
 </html>

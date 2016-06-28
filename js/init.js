@@ -18,12 +18,12 @@ var houlyTable;
 var consoleP;
 function onInit() {
     //alert("on init");
-    $(".button-collapse").sideNav();
-    //document.getElementsByClassName("button-collapse").sideNav();
-
-    $('.collapsible').collapsible({
-        accordion: true // A setting that changes the collapsible behavior to expandable instead of the default accordion style
-    });
+    //$(".button-collapse").sideNav();
+    ////document.getElementsByClassName("button-collapse").sideNav();
+    //
+    //$('.collapsible').collapsible({
+    //    accordion: true // A setting that changes the collapsible behavior to expandable instead of the default accordion style
+    //});
 
     //$('.modal-trigger').leanModal();
     //$('.scrollspy').scrollSpy();
@@ -116,9 +116,9 @@ function getHourlyWeather(lantitude, longitude) {
                 var timeTd = document.createElement("td");
                 var iconTd = document.createElement("td");
                 var tempTd = document.createElement("td");
-                timeTd.setAttribute("class", "time_item");
-                iconTd.setAttribute("class", "time_item");
-                tempTd.setAttribute("class", "time_item");
+                timeTd.setAttribute("class", "text-center");
+                iconTd.setAttribute("class", "text-center");
+                tempTd.setAttribute("class", "text-center");
 
                 timeTd.innerHTML = time;
                 iconTd.innerHTML = icon;
@@ -150,7 +150,8 @@ function getDailyWeather(lantitude, longitude) {
             for (var i = 1; i < dailyForecast.length; i++) {
                 var dailyLi = document.createElement("li");
                 var dailyItem = document.createElement("div");
-                dailyItem.setAttribute("class", "row");
+                dailyLi.setAttribute("class", "daily-li");
+                dailyItem.setAttribute("class", "row ");
 
                 var date = dailyForecast[i].fcst_valid_local;
                 if (null != date) {
@@ -166,23 +167,26 @@ function getDailyWeather(lantitude, longitude) {
                 var precipitation = dayObj.qpf;
 
                 var weekDiv = document.createElement("div");
-                weekDiv.setAttribute("class", "col-md-2 col-xs-2");
+                weekDiv.setAttribute("class", "text-center center-block col-md-2 col-xs-2");
                 weekDiv.innerHTML = week;
                 var iconDiv = document.createElement("div");
-                iconDiv.setAttribute("class", "col-md-2 col-xs-2");
-                iconDiv.innerHTML = iconCode;
+                iconDiv.setAttribute("class", "text-center center-block col-md-2 col-xs-2");
+                var iconImg = document.createElement("img");
+                iconImg.setAttribute("class", "daily-img");
+                iconImg.src = getDailyIcon(iconCode);
+                iconDiv.appendChild(iconImg);
                 var phraseDiv = document.createElement("div");
-                phraseDiv.setAttribute("class", "col-md-5 col-xs-5");
+                phraseDiv.setAttribute("class", "text-center  center-block col-md-5 col-xs-5");
                 phraseDiv.innerHTML = phrase;
                 var precipDiv = document.createElement("div");
-                precipDiv.setAttribute("class", "col-md-1 col-xs-1");
-                precipDiv.innerHTML = precipitation;
+                precipDiv.setAttribute("class", "text-center center-block col-md-1 col-xs-1");
+                precipDiv.innerHTML = precipitation + "mm";
                 var highDiv = document.createElement("div");
-                highDiv.setAttribute("class", "col-md-1 col-xs-1");
-                highDiv.innerHTML = maxTemp;
+                highDiv.setAttribute("class", "text-center center-block col-md-1 col-xs-1");
+                highDiv.innerHTML = maxTemp + "℃";
                 var lowDiv = document.createElement("div");
-                lowDiv.setAttribute("class", "col-md-1 col-xs-1");
-                lowDiv.innerHTML = mintemp;
+                lowDiv.setAttribute("class", "text-center center-block col-md-1 col-xs-1");
+                lowDiv.innerHTML = mintemp + "℃";
                 dailyItem.appendChild(weekDiv);
                 dailyItem.appendChild(iconDiv);
                 dailyItem.appendChild(phraseDiv);
@@ -191,6 +195,7 @@ function getDailyWeather(lantitude, longitude) {
                 dailyItem.appendChild(lowDiv);
                 dailyLi.appendChild(dailyItem);
                 dailul.appendChild(dailyLi);
+
             }
         }
     }

@@ -15,6 +15,156 @@ function buildUrl(url, parameters) {
     return url;
 }
 
+var iconDailyMap = {
+
+    28: "res/drawable-hdpi/mini_icons_cloundy.png",
+    30: "res/drawable-hdpi/mini_icons_cloundy.png",
+
+    9: "res/drawable-hdpi/mini_icons_drizzle.png",
+    11: "res/drawable-hdpi/mini_icons_drizzle.png",
+    45: "res/drawable-hdpi/mini_icons_drizzle.png",
+    46: "res/drawable-hdpi/mini_icons_drizzle.png",
+
+    19: "res/drawable-hdpi/mini_icons_fog.png",
+    20: "res/drawable-hdpi/mini_icons_fog.png",
+    21: "res/drawable-hdpi/mini_icons_fog.png",
+    22: "res/drawable-hdpi/mini_icons_fog.png",
+
+    17: "res/drawable-hdpi/mini_icons_hail.png",
+
+    3: "res/drawable-hdpi/mini_icons_lightning.png",
+    4: "res/drawable-hdpi/mini_icons_lightning.png",
+
+    31: "res/drawable-hdpi/mini_icons_night_clear.png",
+    33: "res/drawable-hdpi/mini_icons_night_clear.png",
+
+    27: "res/drawable-hdpi/mini_icons_night_clound.png",
+    29: "res/drawable-hdpi/mini_icons_night_clound.png",
+
+    26: "res/drawable-hdpi/mini_icons_overcast.png",
+
+    12: "res/drawable-hdpi/mini_icons_rain.png",
+    40: "res/drawable-hdpi/mini_icons_rain.png",
+
+    5: "res/drawable-hdpi/mini_icons_rain_snow.png",
+    6: "res/drawable-hdpi/mini_icons_rain_snow.png",
+    7: "res/drawable-hdpi/mini_icons_rain_snow.png",
+    8: "res/drawable-hdpi/mini_icons_rain_snow.png",
+    10: "res/drawable-hdpi/mini_icons_rain_snow.png",
+    18: "res/drawable-hdpi/mini_icons_rain_snow.png",
+    35: "res/drawable-hdpi/mini_icons_rain_snow.png",
+
+
+    13: "res/drawable-hdpi/mini_icons_snow.png",
+    14: "res/drawable-hdpi/mini_icons_snow.png",
+    15: "res/drawable-hdpi/mini_icons_snow.png",
+    8: "res/drawable-hdpi/mini_icons_snow.png",
+    16: "res/drawable-hdpi/mini_icons_snow.png",
+    41: "res/drawable-hdpi/mini_icons_snow.png",
+    42: "res/drawable-hdpi/mini_icons_snow.png",
+    43: "res/drawable-hdpi/mini_icons_snow.png",
+
+    32: "res/drawable-hdpi/mini_icons_sunny.png",
+    34: "res/drawable-hdpi/mini_icons_sunny.png",
+    44: "res/drawable-hdpi/mini_icons_sunny.png",
+
+    37: "res/drawable-hdpi/mini_icons_sunny_lightning.png",
+    38: "res/drawable-hdpi/mini_icons_sunny_lightning.png",
+    47: "res/drawable-hdpi/mini_icons_sunny_lightning.png",
+
+    39: "res/drawable-hdpi/mini_icons_sunny_rain.png",
+
+    0: "res/drawable-hdpi/mini_icons_wind.png",
+    1: "res/drawable-hdpi/mini_icons_wind.png",
+    2: "res/drawable-hdpi/mini_icons_wind.png",
+    23: "res/drawable-hdpi/mini_icons_wind.png",
+    24: "res/drawable-hdpi/mini_icons_wind.png",
+
+    25: "res/drawable-hdpi/mini_icons_cold.png",
+
+    36: "res/drawable-hdpi/mini_icons_hot.png",
+};
+
+function getDailyIcon(icon) {
+    if (iconDailyMap[icon] != null) {
+        return iconDailyMap[icon];
+    } else {
+        return "res/drawable-hdpi/mini_icons_sunny.png";
+    }
+}
+
+
+var bgColorDailyMap = {
+
+    28: "res/drawable-hdpi/mini_icons_cloundy.png",
+    30: "res/drawable-hdpi/mini_icons_cloundy.png",
+
+    9: "res/drawable-hdpi/mini_icons_drizzle.png",
+    11: "res/drawable-hdpi/mini_icons_drizzle.png",
+    45: "res/drawable-hdpi/mini_icons_drizzle.png",
+    46: "res/drawable-hdpi/mini_icons_drizzle.png",
+
+    19: "res/drawable-hdpi/mini_icons_fog.png",
+    20: "res/drawable-hdpi/mini_icons_fog.png",
+    21: "res/drawable-hdpi/mini_icons_fog.png",
+    22: "res/drawable-hdpi/mini_icons_fog.png",
+
+    17: "res/drawable-hdpi/mini_icons_hail.png",
+
+    3: "res/drawable-hdpi/mini_icons_lightning.png",
+    4: "res/drawable-hdpi/mini_icons_lightning.png",
+
+    31: "res/drawable-hdpi/mini_icons_night_clear.png",
+    33: "res/drawable-hdpi/mini_icons_night_clear.png",
+
+    27: "res/drawable-hdpi/mini_icons_night_clound.png",
+    29: "res/drawable-hdpi/mini_icons_night_clound.png",
+
+    26: "res/drawable-hdpi/mini_icons_overcast.png",
+
+    12: "res/drawable-hdpi/mini_icons_rain.png",
+    40: "res/drawable-hdpi/mini_icons_rain.png",
+
+    5: "res/drawable-hdpi/mini_icons_rain_snow.png",
+    6: "res/drawable-hdpi/mini_icons_rain_snow.png",
+    7: "res/drawable-hdpi/mini_icons_rain_snow.png",
+    8: "res/drawable-hdpi/mini_icons_rain_snow.png",
+    10: "res/drawable-hdpi/mini_icons_rain_snow.png",
+    18: "res/drawable-hdpi/mini_icons_rain_snow.png",
+    35: "res/drawable-hdpi/mini_icons_rain_snow.png",
+
+
+    13: "res/drawable-hdpi/mini_icons_snow.png",
+    14: "res/drawable-hdpi/mini_icons_snow.png",
+    15: "res/drawable-hdpi/mini_icons_snow.png",
+    8: "res/drawable-hdpi/mini_icons_snow.png",
+    16: "res/drawable-hdpi/mini_icons_snow.png",
+    41: "res/drawable-hdpi/mini_icons_snow.png",
+    42: "res/drawable-hdpi/mini_icons_snow.png",
+    43: "res/drawable-hdpi/mini_icons_snow.png",
+
+    32: "res/drawable-hdpi/mini_icons_sunny.png",
+    34: "res/drawable-hdpi/mini_icons_sunny.png",
+    44: "res/drawable-hdpi/mini_icons_sunny.png",
+
+    37: "res/drawable-hdpi/mini_icons_sunny_lightning.png",
+    38: "res/drawable-hdpi/mini_icons_sunny_lightning.png",
+    47: "res/drawable-hdpi/mini_icons_sunny_lightning.png",
+
+    39: "res/drawable-hdpi/mini_icons_sunny_rain.png",
+
+    0: "res/drawable-hdpi/mini_icons_wind.png",
+    1: "res/drawable-hdpi/mini_icons_wind.png",
+    2: "res/drawable-hdpi/mini_icons_wind.png",
+    23: "res/drawable-hdpi/mini_icons_wind.png",
+    24: "res/drawable-hdpi/mini_icons_wind.png",
+
+    25: "res/drawable-hdpi/mini_icons_cold.png",
+
+    36: "res/drawable-hdpi/mini_icons_hot.png",
+};
+
+
 function currentWeatherUrl(lantitude, longitude, lang) {
     var url = "http://api.weather.com/v1/" + "geocode/" + lantitude + "/" + longitude + "/" + "observations/current.json?apiKey=" + APIKEY + "&language=" + lang + "&units=m";
     return encodeURI(url);
