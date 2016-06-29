@@ -13,6 +13,8 @@ var currentTemp, currentPhrase, cityname,
     tempHighValue, tempLowValue, precipitationValue, humidityValue,
     visibilityValue, pressureValue, windValue, uvValue;
 
+var bodyDiv;
+
 var houlyTable;
 
 var consoleP;
@@ -41,15 +43,17 @@ function onInit() {
 
     consoleP = document.getElementById("console_p");
 
+    bodyDiv = document.getElementById("body_div");
+
     getCityInfo();
 }
 
 function getCityInfo() {
     var cityInfo = localStorage.getItem("locate_city");
-    console.error(cityInfo);
+    console.log(cityInfo);
     if (null != cityInfo && "" != cityInfo) {
         addressBean = JSON.parse(cityInfo);
-        console.error(JSON.stringify(addressBean));
+        console.log(JSON.stringify(addressBean));
         //var firstCity = cityBean.addresses[0];
         //alert(firstCity.locality);
         cityname.innerHTML = addressBean.locality;
@@ -80,6 +84,12 @@ function getCurrentWeather(lantitude, longitude) {
             windValue.innerHTML = metric.wspd + "km/h";
             pressureValue.innerHTML = metric.mslp + "pa";
             uvValue.innerHTML = observation.uv_index;
+
+            console.info("icon_code=" + observation.icon_code + " bg res=" + getBackgroundImage(observation.icon_code));
+            console.info("url('res/drawable-xxhdpi/bg_cloudy.png')");
+            console.info("url('" + getBackgroundImage(observation.icon_code) + "')");
+            bodyDiv.style.backgroundImage = "url('res/drawable-xxhdpi/bg_sunny.png')";
+            //bodyDiv.style.backgroundImage =  "url('" + getBackgroundImage(observation.icon_code) + "')";
         }
     }
     request.open("GET", url);
@@ -99,13 +109,8 @@ function getHourlyWeather(lantitude, longitude) {
             //houlyTable.setAttribute("class", "responsive-table");
             hourlyWeatherBean = JSON.parse(request.responseText);
             var hourlyForecast = hourlyWeatherBean.forecasts;
-            houlyTable = document.getElementById("hourly_table");
-            var tableBody = document.createElement("tbody");
-            houlyTable.appendChild(tableBody);
-            var timeTr = document.createElement("tr");
-            var iconTr = document.createElement("tr");
-            var tempTr = document.createElement("tr");
 
+            var hourlyDiv = document.getElementById("hourly_div");
             for (var i = 0; i < hourlyForecast.length; i++) {
                 var time = hourlyForecast[i].fcst_valid_local;
                 if (null != time) {
@@ -113,23 +118,37 @@ function getHourlyWeather(lantitude, longitude) {
                 }
                 var icon = hourlyForecast[i].icon_code;
                 var temp = hourlyForecast[i].temp;
-                var timeTd = document.createElement("td");
-                var iconTd = document.createElement("td");
-                var tempTd = document.createElement("td");
-                timeTd.setAttribute("class", "text-center");
-                iconTd.setAttribute("class", "text-center");
-                tempTd.setAttribute("class", "text-center");
 
-                timeTd.innerHTML = time;
-                iconTd.innerHTML = icon;
-                tempTd.innerHTML = temp + "℃";
-                timeTr.appendChild(timeTd);
-                iconTr.appendChild(iconTd);
-                tempTr.appendChild(tempTd);
+                var hourlyItem = document.createElement("div");
+                hourlyItem.setAttribute("class", "hourly_item");
+                var timeDiv = document.createElement("div");
+                var iconDiv = document.createElement("div");
+                var tempDiv = document.createElement("div");
+                timeDiv.setAttribute("class", "text-center");
+                iconDiv.setAttribute("class", "text-center");
+                tempDiv.setAttribute("class", "text-center");
+
+                timeDiv.innerHTML = time;
+                tempDiv.innerHTML = temp + "℃";
+
+                var iconImg = document.createElement("img");
+                iconImg.setAttribute("class", "daily-img");
+                iconImg.src = getHourlyIcon(icon);
+                iconDiv.appendChild(iconImg);
+
+                hourlyItem.appendChild(timeDiv);
+                hourlyItem.appendChild(iconDiv);
+                hourlyItem.appendChild(tempDiv);
+                hourlyDiv.appendChild(hourlyItem);
             }
-            tableBody.appendChild(timeTr);
-            tableBody.appendChild(iconTr);
-            tableBody.appendChild(tempTr);
+
+            $("#hourly_div").owlCarousel({
+                autoPlay: false,
+                items: 12,
+                itemsDesktop: [1199, 3],
+                itemsDesktopSmall: [1199, 3],
+                navigation: false
+            });
         }
     }
     request.open("GET", url);
@@ -150,7 +169,7 @@ function getDailyWeather(lantitude, longitude) {
             for (var i = 1; i < dailyForecast.length; i++) {
                 var dailyLi = document.createElement("li");
                 var dailyItem = document.createElement("div");
-                dailyLi.setAttribute("class", "daily-li");
+                dailyLi.setAttribute("class", "daily_li");
                 dailyItem.setAttribute("class", "row ");
 
                 var date = dailyForecast[i].fcst_valid_local;
@@ -167,25 +186,25 @@ function getDailyWeather(lantitude, longitude) {
                 var precipitation = dayObj.qpf;
 
                 var weekDiv = document.createElement("div");
-                weekDiv.setAttribute("class", "text-center center-block col-md-2 col-xs-2");
+                weekDiv.setAttribute("class", "daily_item  text-center  col-md-2 col-xs-2");
                 weekDiv.innerHTML = week;
                 var iconDiv = document.createElement("div");
-                iconDiv.setAttribute("class", "text-center center-block col-md-2 col-xs-2");
+                iconDiv.setAttribute("class", "daily_item text-center  col-md-2 col-xs-2");
                 var iconImg = document.createElement("img");
                 iconImg.setAttribute("class", "daily-img");
                 iconImg.src = getDailyIcon(iconCode);
                 iconDiv.appendChild(iconImg);
                 var phraseDiv = document.createElement("div");
-                phraseDiv.setAttribute("class", "text-center  center-block col-md-5 col-xs-5");
+                phraseDiv.setAttribute("class", "daily_item text-center  col-md-5 col-xs-5");
                 phraseDiv.innerHTML = phrase;
                 var precipDiv = document.createElement("div");
-                precipDiv.setAttribute("class", "text-center center-block col-md-1 col-xs-1");
+                precipDiv.setAttribute("class", " daily_item text-center  col-md-1 col-xs-1");
                 precipDiv.innerHTML = precipitation + "mm";
                 var highDiv = document.createElement("div");
-                highDiv.setAttribute("class", "text-center center-block col-md-1 col-xs-1");
+                highDiv.setAttribute("class", "daily_item text-center col-md-1 col-xs-1");
                 highDiv.innerHTML = maxTemp + "℃";
                 var lowDiv = document.createElement("div");
-                lowDiv.setAttribute("class", "text-center center-block col-md-1 col-xs-1");
+                lowDiv.setAttribute("class", "daily_item text-center col-md-1 col-xs-1");
                 lowDiv.innerHTML = mintemp + "℃";
                 dailyItem.appendChild(weekDiv);
                 dailyItem.appendChild(iconDiv);

@@ -93,75 +93,181 @@ function getDailyIcon(icon) {
     }
 }
 
+var iconHourlyMap = {
 
-var bgColorDailyMap = {
+    28: "res/drawable-hdpi/mini_icons_cloundy_h.png",
+    30: "res/drawable-hdpi/mini_icons_cloundy_h.png",
 
-    28: "res/drawable-hdpi/mini_icons_cloundy.png",
-    30: "res/drawable-hdpi/mini_icons_cloundy.png",
+    9: "res/drawable-hdpi/mini_icons_drizzle_h.png",
+    11: "res/drawable-hdpi/mini_icons_drizzle_h.png",
+    45: "res/drawable-hdpi/mini_icons_drizzle_h.png",
+    46: "res/drawable-hdpi/mini_icons_drizzle_h.png",
 
-    9: "res/drawable-hdpi/mini_icons_drizzle.png",
-    11: "res/drawable-hdpi/mini_icons_drizzle.png",
-    45: "res/drawable-hdpi/mini_icons_drizzle.png",
-    46: "res/drawable-hdpi/mini_icons_drizzle.png",
+    19: "res/drawable-hdpi/mini_icons_fog_h.png",
+    20: "res/drawable-hdpi/mini_icons_fog_h.png",
+    21: "res/drawable-hdpi/mini_icons_fog_h.png",
+    22: "res/drawable-hdpi/mini_icons_fog_h.png",
 
-    19: "res/drawable-hdpi/mini_icons_fog.png",
-    20: "res/drawable-hdpi/mini_icons_fog.png",
-    21: "res/drawable-hdpi/mini_icons_fog.png",
-    22: "res/drawable-hdpi/mini_icons_fog.png",
+    17: "res/drawable-hdpi/mini_icons_hail_h.png",
 
-    17: "res/drawable-hdpi/mini_icons_hail.png",
+    3: "res/drawable-hdpi/mini_icons_lightning_h.png",
+    4: "res/drawable-hdpi/mini_icons_lightning_h.png",
 
-    3: "res/drawable-hdpi/mini_icons_lightning.png",
-    4: "res/drawable-hdpi/mini_icons_lightning.png",
+    31: "res/drawable-hdpi/mini_icons_night_clear_h.png",
+    33: "res/drawable-hdpi/mini_icons_night_clear_h.png",
 
-    31: "res/drawable-hdpi/mini_icons_night_clear.png",
-    33: "res/drawable-hdpi/mini_icons_night_clear.png",
+    27: "res/drawable-hdpi/mini_icons_night_clound_h.png",
+    29: "res/drawable-hdpi/mini_icons_night_clound_h.png",
 
-    27: "res/drawable-hdpi/mini_icons_night_clound.png",
-    29: "res/drawable-hdpi/mini_icons_night_clound.png",
+    26: "res/drawable-hdpi/mini_icons_overcast_h.png",
 
-    26: "res/drawable-hdpi/mini_icons_overcast.png",
+    12: "res/drawable-hdpi/mini_icons_rain_h.png",
+    40: "res/drawable-hdpi/mini_icons_rain_h.png",
 
-    12: "res/drawable-hdpi/mini_icons_rain.png",
-    40: "res/drawable-hdpi/mini_icons_rain.png",
-
-    5: "res/drawable-hdpi/mini_icons_rain_snow.png",
-    6: "res/drawable-hdpi/mini_icons_rain_snow.png",
-    7: "res/drawable-hdpi/mini_icons_rain_snow.png",
-    8: "res/drawable-hdpi/mini_icons_rain_snow.png",
-    10: "res/drawable-hdpi/mini_icons_rain_snow.png",
-    18: "res/drawable-hdpi/mini_icons_rain_snow.png",
-    35: "res/drawable-hdpi/mini_icons_rain_snow.png",
+    5: "res/drawable-hdpi/mini_icons_rain_snow_h.png",
+    6: "res/drawable-hdpi/mini_icons_rain_snow_h.png",
+    7: "res/drawable-hdpi/mini_icons_rain_snow_h.png",
+    8: "res/drawable-hdpi/mini_icons_rain_snow_h.png",
+    10: "res/drawable-hdpi/mini_icons_rain_snow_h.png",
+    18: "res/drawable-hdpi/mini_icons_rain_snow_h.png",
+    35: "res/drawable-hdpi/mini_icons_rain_snow_h.png",
 
 
-    13: "res/drawable-hdpi/mini_icons_snow.png",
-    14: "res/drawable-hdpi/mini_icons_snow.png",
-    15: "res/drawable-hdpi/mini_icons_snow.png",
-    8: "res/drawable-hdpi/mini_icons_snow.png",
-    16: "res/drawable-hdpi/mini_icons_snow.png",
-    41: "res/drawable-hdpi/mini_icons_snow.png",
-    42: "res/drawable-hdpi/mini_icons_snow.png",
-    43: "res/drawable-hdpi/mini_icons_snow.png",
+    13: "res/drawable-hdpi/mini_icons_snow_h.png",
+    14: "res/drawable-hdpi/mini_icons_snow_h.png",
+    15: "res/drawable-hdpi/mini_icons_snow_h.png",
+    8: "res/drawable-hdpi/mini_icons_snow_h.png",
+    16: "res/drawable-hdpi/mini_icons_snow_h.png",
+    41: "res/drawable-hdpi/mini_icons_snow_h.png",
+    42: "res/drawable-hdpi/mini_icons_snow_h.png",
+    43: "res/drawable-hdpi/mini_icons_snow_h.png",
 
-    32: "res/drawable-hdpi/mini_icons_sunny.png",
-    34: "res/drawable-hdpi/mini_icons_sunny.png",
-    44: "res/drawable-hdpi/mini_icons_sunny.png",
+    32: "res/drawable-hdpi/mini_icons_sunny_h.png",
+    34: "res/drawable-hdpi/mini_icons_sunny_h.png",
+    44: "res/drawable-hdpi/mini_icons_sunny_h.png",
 
-    37: "res/drawable-hdpi/mini_icons_sunny_lightning.png",
-    38: "res/drawable-hdpi/mini_icons_sunny_lightning.png",
-    47: "res/drawable-hdpi/mini_icons_sunny_lightning.png",
+    37: "res/drawable-hdpi/mini_icons_sunny_lightning_h.png",
+    38: "res/drawable-hdpi/mini_icons_sunny_lightning_h.png",
+    47: "res/drawable-hdpi/mini_icons_sunny_lightning_h.png",
 
-    39: "res/drawable-hdpi/mini_icons_sunny_rain.png",
+    39: "res/drawable-hdpi/mini_icons_sunny_rain_h.png",
 
-    0: "res/drawable-hdpi/mini_icons_wind.png",
-    1: "res/drawable-hdpi/mini_icons_wind.png",
-    2: "res/drawable-hdpi/mini_icons_wind.png",
-    23: "res/drawable-hdpi/mini_icons_wind.png",
-    24: "res/drawable-hdpi/mini_icons_wind.png",
+    0: "res/drawable-hdpi/mini_icons_wind_h.png",
+    1: "res/drawable-hdpi/mini_icons_wind_h.png",
+    2: "res/drawable-hdpi/mini_icons_wind_h.png",
+    23: "res/drawable-hdpi/mini_icons_wind_h.png",
+    24: "res/drawable-hdpi/mini_icons_wind_h.png",
 
-    25: "res/drawable-hdpi/mini_icons_cold.png",
+    25: "res/drawable-hdpi/mini_icons_cold_h.png",
 
-    36: "res/drawable-hdpi/mini_icons_hot.png",
+    36: "res/drawable-hdpi/mini_icons_hot_h.png",
+};
+
+function getHourlyIcon(icon) {
+    if (iconHourlyMap[icon] != null) {
+        return iconHourlyMap[icon];
+    } else {
+        return "res/drawable-hdpi/mini_icons_sunny_h.png";
+    }
+}
+
+
+var backgoundImageMap = {
+    27: "res/drawable-xxhdpi/bg_clear.png",
+    29: "res/drawable-xxhdpi/bg_clear.png",
+    31: "res/drawable-xxhdpi/bg_clear.png",
+    33: "res/drawable-xxhdpi/bg_clear.png",
+
+    26: "res/drawable-xxhdpi/bg_cloudy.png",
+    28: "res/drawable-xxhdpi/bg_cloudy.png",
+    30: "res/drawable-xxhdpi/bg_cloudy.png",
+    34: "res/drawable-xxhdpi/bg_cloudy.png",
+
+    19: "res/drawable-xxhdpi/bg_fog.png",
+    20: "res/drawable-xxhdpi/bg_fog.png",
+    21: "res/drawable-xxhdpi/bg_fog.png",
+    22: "res/drawable-xxhdpi/bg_fog.png",
+    23: "res/drawable-xxhdpi/bg_fog.png",
+    24: "res/drawable-xxhdpi/bg_fog.png",
+
+    25: "res/drawable-xxhdpi/bg_frost.png",
+
+    4: "res/drawable-xxhdpi/bg_rainy.png",
+    5: "res/drawable-xxhdpi/bg_rainy.png",
+    6: "res/drawable-xxhdpi/bg_rainy.png",
+    8: "res/drawable-xxhdpi/bg_rainy.png",
+    9: "res/drawable-xxhdpi/bg_rainy.png",
+    10: "res/drawable-xxhdpi/bg_rainy.png",
+    11: "res/drawable-xxhdpi/bg_rainy.png",
+    12: "res/drawable-xxhdpi/bg_rainy.png",
+    40: "res/drawable-xxhdpi/bg_rainy.png",
+
+    7: "res/drawable-xxhdpi/bg_snow.png",
+    13: "res/drawable-xxhdpi/bg_snow.png",
+    14: "res/drawable-xxhdpi/bg_snow.png",
+    15: "res/drawable-xxhdpi/bg_snow.png",
+    16: "res/drawable-xxhdpi/bg_snow.png",
+    17: "res/drawable-xxhdpi/bg_snow.png",
+    18: "res/drawable-xxhdpi/bg_snow.png",
+    42: "res/drawable-xxhdpi/bg_snow.png",
+
+    38: "res/drawable-xxhdpi/bg_storm.png",
+    47: "res/drawable-xxhdpi/bg_storm.png",
+
+    32: "res/drawable-xxhdpi/bg_sunny.png"
+};
+
+function getBackgroundImage(id) {
+    if (backgoundImageMap[id] != null) {
+        return backgoundImageMap[id];
+    } else {
+        return "res/drawable-xxhdpi/bg_sunny.png";
+    }
+}
+
+var backgoundColorMap = {
+    27: "res/drawable-xxhdpi/bg_clear.png",
+    29: "res/drawable-xxhdpi/bg_clear.png",
+    31: "res/drawable-xxhdpi/bg_clear.png",
+    33: "res/drawable-xxhdpi/bg_clear.png",
+
+    26: "res/drawable-xxhdpi/bg_cloudy.png",
+    28: "res/drawable-xxhdpi/bg_cloudy.png",
+    30: "res/drawable-xxhdpi/bg_cloudy.png",
+    34: "res/drawable-xxhdpi/bg_cloudy.png",
+
+    19: "res/drawable-xxhdpi/bg_fog.png",
+    20: "res/drawable-xxhdpi/bg_fog.png",
+    21: "res/drawable-xxhdpi/bg_fog.png",
+    22: "res/drawable-xxhdpi/bg_fog.png",
+    23: "res/drawable-xxhdpi/bg_fog.png",
+    24: "res/drawable-xxhdpi/bg_fog.png",
+
+    25: "res/drawable-xxhdpi/bg_frost.png",
+
+    4: "res/drawable-xxhdpi/bg_rainy.png",
+    5: "res/drawable-xxhdpi/bg_rainy.png",
+    6: "res/drawable-xxhdpi/bg_rainy.png",
+    8: "res/drawable-xxhdpi/bg_rainy.png",
+    9: "res/drawable-xxhdpi/bg_rainy.png",
+    10: "res/drawable-xxhdpi/bg_rainy.png",
+    11: "res/drawable-xxhdpi/bg_rainy.png",
+    12: "res/drawable-xxhdpi/bg_rainy.png",
+    40: "res/drawable-xxhdpi/bg_rainy.png",
+
+    7: "res/drawable-xxhdpi/bg_snow.png",
+    13: "res/drawable-xxhdpi/bg_snow.png",
+    14: "res/drawable-xxhdpi/bg_snow.png",
+    15: "res/drawable-xxhdpi/bg_snow.png",
+    16: "res/drawable-xxhdpi/bg_snow.png",
+    17: "res/drawable-xxhdpi/bg_snow.png",
+    18: "res/drawable-xxhdpi/bg_snow.png",
+    42: "res/drawable-xxhdpi/bg_snow.png",
+
+    38: "res/drawable-xxhdpi/bg_storm.png",
+    47: "res/drawable-xxhdpi/bg_storm.png",
+
+    32: "res/drawable-xxhdpi/bg_sunny.png"
 };
 
 

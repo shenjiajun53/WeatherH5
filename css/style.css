@@ -1,15 +1,31 @@
-.daily-img {
-    height: 3rem;
+#body_div {
+    /*background-image: url('res/drawable-xxhdpi/bg_cloudy.png');*/
 }
 
-.daily-li {
+.container_margin {
+    margin-bottom: 1rem;
+}
+
+.hourly_item {
+    margin: 1px;
     background-color: grey;
     color: white;
 }
 
+.daily_li {
+    margin: 1px;
+    background-color: grey;
+    color: white;
+}
+
+.daily_item {
+    height: 5rem;
+    line-height: 5rem;
+    text-align: center;
+}
 
 /*.body-div{*/
-    /*background-color: #2aabd2;*/
+/*background-color: #2aabd2;*/
 /*}*/
 
 /*.table-responsive > .table > tbody > tr > td, .table-responsive > .table > tbody > tr > th, .table-responsive > .table > tfoot > tr > td, .table-responsive > .table > tfoot > tr > th, .table-responsive > .table > thead > tr > td, .table-responsive > .table > thead > tr > th {*/
