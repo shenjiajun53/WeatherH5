@@ -88,8 +88,8 @@ function getCurrentWeather(lantitude, longitude) {
             console.info("icon_code=" + observation.icon_code + " bg res=" + getBackgroundImage(observation.icon_code));
             console.info("url('res/drawable-xxhdpi/bg_cloudy.png')");
             console.info("url('" + getBackgroundImage(observation.icon_code) + "')");
-            bodyDiv.style.backgroundImage = "url('res/drawable-xxhdpi/bg_sunny.png')";
-            //bodyDiv.style.backgroundImage =  "url('" + getBackgroundImage(observation.icon_code) + "')";
+            //bodyDiv.style.backgroundImage = "url('res/drawable-xxhdpi/bg_sunny.jpg')";
+            bodyDiv.style.backgroundImage =  "url('" + getBackgroundImage(observation.icon_code) + "')";
         }
     }
     request.open("GET", url);

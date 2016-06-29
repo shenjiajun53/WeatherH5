@@ -245,15 +245,15 @@ var backgoundColorMap = {
 
     25: "res/drawable-xxhdpi/bg_frost.png",
 
-    4: "res/drawable-xxhdpi/bg_rainy.png",
-    5: "res/drawable-xxhdpi/bg_rainy.png",
-    6: "res/drawable-xxhdpi/bg_rainy.png",
-    8: "res/drawable-xxhdpi/bg_rainy.png",
-    9: "res/drawable-xxhdpi/bg_rainy.png",
-    10: "res/drawable-xxhdpi/bg_rainy.png",
-    11: "res/drawable-xxhdpi/bg_rainy.png",
-    12: "res/drawable-xxhdpi/bg_rainy.png",
-    40: "res/drawable-xxhdpi/bg_rainy.png",
+    4: "res/drawable-xxhdpi/bg_rainy.jpg",
+    5: "res/drawable-xxhdpi/bg_rainy.jpg",
+    6: "res/drawable-xxhdpi/bg_rainy.jpg",
+    8: "res/drawable-xxhdpi/bg_rainy.jpg",
+    9: "res/drawable-xxhdpi/bg_rainy.jpg",
+    10: "res/drawable-xxhdpi/bg_rainy.jpg",
+    11: "res/drawable-xxhdpi/bg_rainy.jpg",
+    12: "res/drawable-xxhdpi/bg_rainy.jpg",
+    40: "res/drawable-xxhdpi/bg_rainy.jpg",
 
     7: "res/drawable-xxhdpi/bg_snow.png",
     13: "res/drawable-xxhdpi/bg_snow.png",
@@ -267,7 +267,7 @@ var backgoundColorMap = {
     38: "res/drawable-xxhdpi/bg_storm.png",
     47: "res/drawable-xxhdpi/bg_storm.png",
 
-    32: "res/drawable-xxhdpi/bg_sunny.png"
+    32: "res/drawable-xxhdpi/bg_sunny.jpg"
 };
 
 
