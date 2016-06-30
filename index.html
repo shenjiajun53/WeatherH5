@@ -6,16 +6,17 @@
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <title>Title</title>
 
-    <link href="bootstrap/css/bootstrap.min.css" rel="stylesheet">
-    <!--<link href="materialize-v0.97.6/materialize/css/materialize.min.css" rel="stylesheet">-->
 
-    <link href="css/style.css" type="text/css" rel="stylesheet" media="screen,projection"/>
+    <link href="materialize-v0.97.6/materialize/css/materialize.min.css" rel="stylesheet">
+    <link href="bootstrap/css/bootstrap.min.css" rel="stylesheet">
 
     <!-- Important Owl stylesheet -->
     <link rel="stylesheet" href="owl-carousel/owl.carousel.css">
 
     <!-- Default Theme -->
     <link rel="stylesheet" href="owl-carousel/owl.theme.css">
+
+    <link href="css/style.css" type="text/css" rel="stylesheet" media="screen,projection"/>
 </head>
 
 
@@ -44,78 +45,79 @@
         </div>
     </nav>
 
-    <div class="container container_margin">
-        <div>
-            <p id="current_temp" class="text-center">14℃</p>
-            <p class="text-center">
+    <div class="card-panel  container container_margin container_no_padding">
+        <div class="valign-wrapper" id="current_top">
+            <div id="current_temp" class="col-md-3  text-center valign">14℃</div>
+            <div class="col-md-9 valign">
                 <span id="current_phrase">Cloundy</span>
                 <br>
                 <span id="city_name">Shanghai</span>
-            </p>
-        </div>
-
-        <div class="row">
-            <div id="temper_high_div" class="container_margin col-md-3 col-xs-6 text-center">
-                <div>High</div>
-                <img src="res/drawable-hdpi/currnet_high_b.png">
-                <div id="temp_high_value"></div>
-            </div>
-            <div id="temper_low_div" class="container_margin col-md-3 col-xs-6 text-center">
-                <div>Low</div>
-                <img src="res/drawable-hdpi/currnet_low_b.png">
-                <div id="temper_low_value"></div>
-            </div>
-            <div id="precipitation_div" class="container_margin col-md-3 col-xs-6 text-center">
-                <div>Precipitation</div>
-                <img src="res/drawable-hdpi/currnet_preciptation_b.png">
-                <div id="precipitation_value"></div>
-            </div>
-            <div id="humidity_div" class="container_margin col-md-3 col-xs-6 text-center">
-                <div>Humidity</div>
-                <img src="res/drawable-hdpi/currnet_humidity_b.png">
-                <div id="humidity_value"></div>
             </div>
         </div>
 
-        <div class="row">
-            <div id="visibility_div" class="container_margin col-md-3 col-xs-6 text-center">
-                <div>Visibility</div>
-                <img src="res/drawable-hdpi/currnet_visibility_b.png">
-                <div id="visibility_value"></div>
+        <div class="card_line"></div>
+
+        <div class=" grey lighten-3">
+            <div class="row no_margin">
+                <div id="temper_high_div" class="container_margin col-md-3 col-xs-6 text-center">
+                    <div>高</div>
+                    <img src="res/drawable-hdpi/currnet_high_b.png">
+                    <div id="temp_high_value"></div>
+                </div>
+                <div id="temper_low_div" class="container_margin col-md-3 col-xs-6 text-center">
+                    <div>低</div>
+                    <img src="res/drawable-hdpi/currnet_low_b.png">
+                    <div id="temper_low_value"></div>
+                </div>
+                <div id="precipitation_div" class="container_margin col-md-3 col-xs-6 text-center">
+                    <div>降水</div>
+                    <img src="res/drawable-hdpi/currnet_preciptation_b.png">
+                    <div id="precipitation_value"></div>
+                </div>
+                <div id="humidity_div" class="container_margin col-md-3 col-xs-6 text-center">
+                    <div>湿度</div>
+                    <img src="res/drawable-hdpi/currnet_humidity_b.png">
+                    <div id="humidity_value"></div>
+                </div>
             </div>
-            <div id="wind_div" class="container_margin col-md-3 col-xs-6 text-center">
-                <div>Wind</div>
-                <img src="res/drawable-hdpi/currnet_wind_b.png">
-                <div id="wind_value"></div>
-            </div>
-            <div id="pressure_div" class="container_margin col-md-3 col-xs-6 text-center">
-                <div>Pressure</div>
-                <img src="res/drawable-hdpi/currnet_pressure_b.png">
-                <div id="pressure_value"></div>
-            </div>
-            <div id="uv_index_div" class="container_margin col-md-3 col-xs-6 text-center">
-                <div>UV</div>
-                <img src="res/drawable-hdpi/currnet_uv_b.png">
-                <div id="uv_index_value"></div>
+
+            <div class="row no_margin">
+                <div id="visibility_div" class="container_margin col-md-3 col-xs-6 text-center">
+                    <div>可见度</div>
+                    <img src="res/drawable-hdpi/currnet_visibility_b.png">
+                    <div id="visibility_value"></div>
+                </div>
+                <div id="wind_div" class="container_margin col-md-3 col-xs-6 text-center">
+                    <div>风速</div>
+                    <img src="res/drawable-hdpi/currnet_wind_b.png">
+                    <div id="wind_value"></div>
+                </div>
+                <div id="pressure_div" class="container_margin col-md-3 col-xs-6 text-center">
+                    <div>气压</div>
+                    <img src="res/drawable-hdpi/currnet_pressure_b.png">
+                    <div id="pressure_value"></div>
+                </div>
+                <div id="uv_index_div" class="container_margin col-md-3 col-xs-6 text-center">
+                    <div>紫外线指数</div>
+                    <img src="res/drawable-hdpi/currnet_uv_b.png">
+                    <div id="uv_index_value"></div>
+                </div>
             </div>
         </div>
     </div>
 
-    <div class="container container_margin">
-
-
+    <div class="container container_margin container_no_padding card-panel grey lighten-5">
         <div class="owl-carousel" id="hourly_div">
 
         </div>
-
     </div>
 
-    <div class="container container_margin">
-        <ul id="daily_ul" class="list-unstyled">
+    <div class="container container_margin container_no_padding card-panel " id="daily_card">
+        <ul id="daily_ul" class="list-unstyled no_padding_and_margin">
         </ul>
     </div>
 </div>
-<p id="console_p"></p>
+
 
 <!--  Scripts-->
 <!-- jQuery (necessary for Bootstrap's JavaScript plugins) -->

@@ -2,19 +2,51 @@
     /*background-image: url('res/drawable-xxhdpi/bg_cloudy.png');*/
 }
 
+.container_no_padding {
+    padding: 0px;
+    margin-right: auto;
+    margin-left: auto
+}
+
+.no_padding_and_margin {
+    padding: 0px;
+    margin: 0px
+}
+
+.no_padding {
+    padding: 0px;
+}
+
+.no_margin {
+    margin: 0px;
+}
+
 .container_margin {
     margin-bottom: 1rem;
 }
 
+#current_top {
+    margin-top: 1.5rem;
+    margin-bottom: 1.5rem;
+}
+
+#current_temp {
+    font-size: 3.5rem;
+}
+
 .hourly_item {
-    margin: 1px;
-    background-color: grey;
-    color: white;
+    margin: 0px;
+    /*background-color: grey;*/
+}
+
+.card_line {
+    height: 1px;
+    background-color: #b0bec5;
 }
 
 .daily_li {
-    margin: 1px;
-    background-color: grey;
+    margin: 0px;
+    padding: 0px;
     color: white;
 }
 
@@ -24,12 +56,39 @@
     text-align: center;
 }
 
-/*.body-div{*/
-/*background-color: #2aabd2;*/
-/*}*/
+.daily_line {
+    height: 1px;
+    /*background-color: #b0bec5;*/
+}
 
-/*.table-responsive > .table > tbody > tr > td, .table-responsive > .table > tbody > tr > th, .table-responsive > .table > tfoot > tr > td, .table-responsive > .table > tfoot > tr > th, .table-responsive > .table > thead > tr > td, .table-responsive > .table > thead > tr > th {*/
-/*white-space: nowrap;*/
-/*margin: 10px;*/
-/*padding: 10px;*/
-/*}*/
+.background_color_clear {
+    background-color: #202959;
+}
+
+.background_color_sunny {
+    background-color: #2193f0;
+}
+
+.background_color_cloundy {
+    background-color: #2193f0;
+}
+
+.background_color_fog {
+    background-color: #37474f;
+}
+
+.background_color_frost {
+    background-color: #37474f;
+}
+
+.background_color_rainny {
+    background-color: #37474f;
+}
+
+.background_color_snow {
+    background-color: #37474f;
+}
+
+.background_color_storm {
+    background-color: #ff009688;
+}

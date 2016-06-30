@@ -192,59 +192,6 @@ var backgoundImageMap = {
 
     25: "res/drawable-xxhdpi/bg_frost.png",
 
-    4: "res/drawable-xxhdpi/bg_rainy.png",
-    5: "res/drawable-xxhdpi/bg_rainy.png",
-    6: "res/drawable-xxhdpi/bg_rainy.png",
-    8: "res/drawable-xxhdpi/bg_rainy.png",
-    9: "res/drawable-xxhdpi/bg_rainy.png",
-    10: "res/drawable-xxhdpi/bg_rainy.png",
-    11: "res/drawable-xxhdpi/bg_rainy.png",
-    12: "res/drawable-xxhdpi/bg_rainy.png",
-    40: "res/drawable-xxhdpi/bg_rainy.png",
-
-    7: "res/drawable-xxhdpi/bg_snow.png",
-    13: "res/drawable-xxhdpi/bg_snow.png",
-    14: "res/drawable-xxhdpi/bg_snow.png",
-    15: "res/drawable-xxhdpi/bg_snow.png",
-    16: "res/drawable-xxhdpi/bg_snow.png",
-    17: "res/drawable-xxhdpi/bg_snow.png",
-    18: "res/drawable-xxhdpi/bg_snow.png",
-    42: "res/drawable-xxhdpi/bg_snow.png",
-
-    38: "res/drawable-xxhdpi/bg_storm.png",
-    47: "res/drawable-xxhdpi/bg_storm.png",
-
-    32: "res/drawable-xxhdpi/bg_sunny.png"
-};
-
-function getBackgroundImage(id) {
-    if (backgoundImageMap[id] != null) {
-        return backgoundImageMap[id];
-    } else {
-        return "res/drawable-xxhdpi/bg_sunny.png";
-    }
-}
-
-var backgoundColorMap = {
-    27: "res/drawable-xxhdpi/bg_clear.png",
-    29: "res/drawable-xxhdpi/bg_clear.png",
-    31: "res/drawable-xxhdpi/bg_clear.png",
-    33: "res/drawable-xxhdpi/bg_clear.png",
-
-    26: "res/drawable-xxhdpi/bg_cloudy.png",
-    28: "res/drawable-xxhdpi/bg_cloudy.png",
-    30: "res/drawable-xxhdpi/bg_cloudy.png",
-    34: "res/drawable-xxhdpi/bg_cloudy.png",
-
-    19: "res/drawable-xxhdpi/bg_fog.png",
-    20: "res/drawable-xxhdpi/bg_fog.png",
-    21: "res/drawable-xxhdpi/bg_fog.png",
-    22: "res/drawable-xxhdpi/bg_fog.png",
-    23: "res/drawable-xxhdpi/bg_fog.png",
-    24: "res/drawable-xxhdpi/bg_fog.png",
-
-    25: "res/drawable-xxhdpi/bg_frost.png",
-
     4: "res/drawable-xxhdpi/bg_rainy.jpg",
     5: "res/drawable-xxhdpi/bg_rainy.jpg",
     6: "res/drawable-xxhdpi/bg_rainy.jpg",
@@ -269,6 +216,67 @@ var backgoundColorMap = {
 
     32: "res/drawable-xxhdpi/bg_sunny.jpg"
 };
+
+function getBackgroundImage(id) {
+    if (backgoundImageMap[id] != null) {
+        return backgoundImageMap[id];
+    } else {
+        return "res/drawable-xxhdpi/bg_sunny.jpg";
+    }
+}
+
+var backgoundColorMap = {
+    27: "#202959",
+    29: "#202959",
+    31: "#202959",
+    33: "#202959",
+
+    26: "#2193f0",
+    28: "#2193f0",
+    30: "#2193f0",
+    34: "#2193f0",
+
+    19: "#37474f",
+    20: "#37474f",
+    21: "#37474f",
+    22: "#37474f",
+    23: "#37474f",
+    24: "#37474f",
+
+    25: "#37474f",
+
+    4: "#37474f",
+    5: "#37474f",
+    6: "#37474f",
+    8: "#37474f",
+    9: "#37474f",
+    10: "#37474f",
+    11: "#37474f",
+    12: "#37474f",
+    40: "#37474f",
+
+    7: "#37474f",
+    13: "#37474f",
+    14: "#37474f",
+    15: "#37474f",
+    16: "#37474f",
+    17: "#37474f",
+    18: "#37474f",
+    42: "#37474f",
+
+    38: "#009688",
+    47: "#009688",
+
+    32: "#2193f0"
+};
+
+function getBackgroundColor(id) {
+    if (backgoundColorMap[id] != null) {
+        return backgoundColorMap[id];
+    } else {
+        return "#2193f0";
+    }
+}
 
 
 function currentWeatherUrl(lantitude, longitude, lang) {
