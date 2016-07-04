@@ -2,6 +2,12 @@
     /*background-image: url('res/drawable-xxhdpi/bg_cloudy.png');*/
 }
 
+.vertical_center {
+    height:3rem;
+    line-height:3rem;
+    text-align:center;
+}
+
 .container_no_padding {
     padding: 0px;
     margin-right: auto;
@@ -92,3 +98,5 @@
 .background_color_storm {
     background-color: #ff009688;
 }
+
+

@@ -103,7 +103,7 @@ function getLocationByName(cityName) {
 function displaySearchResult(cityBean) {
     var resultUl = document.getElementById("search_result_list");
     var itemList = resultUl.childNodes;
-    console.error("itemList length=" + itemList.length);
+    console.log("itemList length=" + itemList.length);
     for (var j = 0; j < itemList.length; j++) {
         resultUl.removeChild(itemList[j]);
     }
@@ -123,7 +123,7 @@ function displaySearchResult(cityBean) {
 
 function selectResult(id, cityBean) {
     var num = id.substring(6, id.length);
-    console.error("num=" + num);
+    console.log("num=" + num);
     localStorage.setItem("locate_city", JSON.stringify(cityBean.addresses[num]));
     window.location.href = "index.html";
 }
