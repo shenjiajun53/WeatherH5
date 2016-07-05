@@ -2,6 +2,7 @@
     /*background-image: url('res/drawable-xxhdpi/bg_cloudy.png');*/
 }
 
+
 .fixed-action-btn {
     display: none;
 }
@@ -70,6 +71,23 @@
     height: 1px;
     /*background-color: #b0bec5;*/
 }
+
+.current_city_outline {
+    text-align: center;
+    margin: 3rem;
+    border: 2px solid lightgray;
+    border-radius: 0.7rem;
+}
+
+.location_outline {
+    text-align: center;
+    margin-left: 0.5rem;
+    margin-right: 0.5rem;
+    margin-bottom: 1rem;
+    border: 2px solid lightgray;
+    border-radius: 0.7rem;
+}
+
 
 .background_color_clear {
     background-color: #202959;

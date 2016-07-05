@@ -8,10 +8,10 @@
     <link href="css/style.css" type="text/css" rel="stylesheet" media="screen,projection"/>
 </head>
 <body>
-<div>
+<div class="container">
     <form onsubmit="return false;">
         <div class="form-group">
-            <div class="col-md-1 col-xs-1 text-center vertical_center">
+            <div class="col-md-1 col-xs-1 text-center vertical_center" id="back_div">
                 <img src="res/drawable-hdpi/ic_arrow_back_black_24dp.png">
             </div>
             <div class="col-md-11 col-xs-11 location_form">
@@ -22,16 +22,38 @@
 
 </div>
 
-<div>
+<div class="container">
     <ul id="search_result_list">
 
     </ul>
 </div>
 
+<div class=" container " style="margin-top: 1rem ; margin-bottom: 1rem">
+    <div class="row">
+        <div class="col-xs-6 col-md-6 text-left ">当前城市</div>
+
+    </div>
+</div>
+
+
+<div class="container">
+    <div class="row">
+        <div class=" location_outline  col-xs-4 col-md-4 " id="current_location_div"></div>
+    </div>
+</div>
+
+<div class=" container " style="margin-top: 1rem ; margin-bottom: 1rem">
+    <div class="row">
+        <div class="col-xs-6 col-md-6 text-left">添加纪录</div>
+        <div class="col-xs-6 col-md-6 text-right " id="delete_location_div">删除</div>
+    </div>
+</div>
 
 <div>
-    <table id="search_history">
+    <table class="container ">
+        <tbody id="search_history">
 
+        </tbody>
     </table>
 </div>
 

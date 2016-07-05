@@ -31,41 +31,76 @@ function onInit() {
             textChange(this.value);
         }
     });
+    $("#back_div").click(function () {
+        window.location.href = "index.html";
+    });
     initView();
 }
 
 function initView() {
+    var currentLocation = $("#current_location_div");
+    var cityInfo = localStorage.getItem("current_city");
+    //console.log(cityInfo);
+    addressBean = JSON.parse(cityInfo);
+    if (null != addressBean.locality && "" != addressBean.locality) {
+        currentLocation.html(addressBean.locality);
+    } else {
+        currentLocation.html(addressBean.admin_district);
+    }
+
+    initSearchedTable();
+}
+
+function initSearchedTable() {
     var searchedLength = localStorage.length - 1;
-    var searchTable = $("#search_history");
+    $("#delete_location_div").click(function () {
+        var currentCityInfo = localStorage.getItem("current_city");
+        localStorage.clear();
+        localStorage.setItem("current_city", currentCityInfo);
+        searchBody.empty();
+    });
+
+    var searchBody = $("#search_history");
     for (var i = 0; i < searchedLength; i++) {
         var cityInfo = localStorage.getItem("searched_city" + i);
         console.log(cityInfo);
         addressBean = JSON.parse(cityInfo);
         //console.log(JSON.stringify(addressBean));
         var searchTd = $("<td></td>");
+        searchTd.addClass("col-md-4 col-xs-4");
+        searchTd.css("padding", "0px");
+        var searchItem = $("<div></div>");
+        searchItem.addClass("location_outline hover");
+
+        (function () {
+            var cityInfo2 = cityInfo;
+            searchItem.click(function () {
+
+                localStorage.setItem("current_city", cityInfo2);
+                window.location.href = "index.html";
+            });
+        })();
+
 
         if (null != addressBean.locality && "" != addressBean.locality) {
-            searchTd.html(addressBean.locality);
+            searchItem.html(addressBean.locality);
         } else {
-            searchTd.html(addressBean.admin_district);
+            searchItem.html(addressBean.admin_district);
         }
         var searchTr = null;
         if (i % 3 == 0) {
-             console.log(parseInt(i / 3));
+            //console.log("if..."+parseInt(i / 3));
             searchTr = $("<tr></tr>");
-            searchTr.append(searchTd);
-            searchTable.append(searchTr);
         } else {
-            // console.log(parseInt(i / 3));
-            searchTr = searchTable.children()[parseInt(i / 3)];
+            //console.log("else.."+parseInt(i / 3));
+            searchTr = $(searchBody.children()[parseInt(i / 3)]);
             //searchTr.append(searchTd);
-        }
-        console.log(searchTable.children().length);
-        //if (null != searchTr) {
-        //    console.log("i=" + i);
-        //    searchTr.append(searchTd);
-        //}
 
+        }
+        searchTd.append(searchItem);
+        searchTr.append(searchTd);
+        searchBody.append(searchTr);
+        //console.log(searchBody.children().length);
     }
 }
 
