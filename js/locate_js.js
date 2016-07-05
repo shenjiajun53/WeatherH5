@@ -9,19 +9,64 @@ var lang = "zh-CN";
 
 function onInit() {
     //getMyLocation();
-    var locateBt = document.getElementById("locate_button");
-    locateBt.onclick = locationOnclick;
+    //var locateBt = document.getElementById("locate_button");
+    //locateBt.onclick = locationOnclick;
 
-    var searchText = document.getElementById("search_text");
-    //searchText.addEventListener("change", function () {
-    //    textChange(this.value);
+
+    //var searchText = document.getElementById("search_text");
+    ////searchText.addEventListener("change", function () {
+    ////    textChange(this.value);
+    ////});
+    //
+    //searchText.addEventListener("keydown", function () {
+    //    if (event.keyCode == 13) {
+    //        textChange(this.value);
+    //    }
     //});
 
-    searchText.addEventListener("keydown", function () {
+
+    $("#locate_button").click(locationOnclick);
+    $("#search_text").on("keydown", function () {
         if (event.keyCode == 13) {
             textChange(this.value);
         }
     });
+    initView();
+}
+
+function initView() {
+    var searchedLength = localStorage.length - 1;
+    var searchTable = $("#search_history");
+    for (var i = 0; i < searchedLength; i++) {
+        var cityInfo = localStorage.getItem("searched_city" + i);
+        console.log(cityInfo);
+        addressBean = JSON.parse(cityInfo);
+        //console.log(JSON.stringify(addressBean));
+        var searchTd = $("<td></td>");
+
+        if (null != addressBean.locality && "" != addressBean.locality) {
+            searchTd.html(addressBean.locality);
+        } else {
+            searchTd.html(addressBean.admin_district);
+        }
+        var searchTr = null;
+        if (i % 3 == 0) {
+             console.log(parseInt(i / 3));
+            searchTr = $("<tr></tr>");
+            searchTr.append(searchTd);
+            searchTable.append(searchTr);
+        } else {
+            // console.log(parseInt(i / 3));
+            searchTr = searchTable.children()[parseInt(i / 3)];
+            //searchTr.append(searchTd);
+        }
+        console.log(searchTable.children().length);
+        //if (null != searchTr) {
+        //    console.log("i=" + i);
+        //    searchTr.append(searchTd);
+        //}
+
+    }
 }
 
 function textChange(value) {
@@ -61,7 +106,9 @@ function getLocationByGeo(position) {
         if (request.status == 200) {
             cityBean = JSON.parse(request.responseText);
             //alert(JSON.stringify(cityBean));
-            localStorage.setItem("locate_city", JSON.stringify(cityBean.addresses[0]));
+            localStorage.setItem("current_city", JSON.stringify(cityBean.addresses[0]));
+            var searchedLength = localStorage.length - 1;
+            localStorage.setItem("searched_city" + searchedLength, JSON.stringify(cityBean.addresses[0]));
             window.location.href = "index.html";
         }
     };
@@ -124,7 +171,9 @@ function displaySearchResult(cityBean) {
 function selectResult(id, cityBean) {
     var num = id.substring(6, id.length);
     console.log("num=" + num);
-    localStorage.setItem("locate_city", JSON.stringify(cityBean.addresses[num]));
+    localStorage.setItem("current_city", JSON.stringify(cityBean.addresses[num]));
+    var searchedLength = localStorage.length - 1;
+    localStorage.setItem("searched_city" + searchedLength, JSON.stringify(cityBean.addresses[0]));
     window.location.href = "index.html";
 }
 
@@ -141,3 +190,5 @@ function displayError(error) {
     }
     alert(errorMessage);
 }
+
+

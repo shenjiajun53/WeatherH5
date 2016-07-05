@@ -47,14 +47,19 @@ function onInit() {
 }
 
 function getCityInfo() {
-    var cityInfo = localStorage.getItem("locate_city");
+    var cityInfo = localStorage.getItem("current_city");
     console.log(cityInfo);
     if (null != cityInfo && "" != cityInfo) {
         addressBean = JSON.parse(cityInfo);
         console.log(JSON.stringify(addressBean));
         //var firstCity = cityBean.addresses[0];
         //alert(firstCity.locality);
-        cityname.innerHTML = addressBean.locality;
+        if (null != addressBean.locality && "" != addressBean.locality) {
+            cityname.html(addressBean.locality);
+        } else {
+            cityname.html(addressBean.address);
+        }
+
         getCurrentWeather(addressBean.latitude, addressBean.longitude);
         getHourlyWeather(addressBean.latitude, addressBean.longitude);
         getDailyWeather(addressBean.latitude, addressBean.longitude);

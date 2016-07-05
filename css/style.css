@@ -2,10 +2,14 @@
     /*background-image: url('res/drawable-xxhdpi/bg_cloudy.png');*/
 }
 
+.fixed-action-btn {
+    display: none;
+}
+
 .vertical_center {
-    height:3rem;
-    line-height:3rem;
-    text-align:center;
+    height: 3rem;
+    line-height: 3rem;
+    text-align: center;
 }
 
 .container_no_padding {
