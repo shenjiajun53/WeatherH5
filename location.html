@@ -4,6 +4,8 @@
     <meta charset="UTF-8">
     <title>Title</title>
 
+    <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+    <link href="materialize-v0.97.6/materialize/css/materialize.min.css" rel="stylesheet">
     <link href="bootstrap/css/bootstrap.min.css" rel="stylesheet">
     <link href="css/style.css" type="text/css" rel="stylesheet" media="screen,projection"/>
 </head>
@@ -38,7 +40,10 @@
 
 <div class="container">
     <div class="row">
-        <div class=" location_outline  col-xs-4 col-md-4 " id="current_location_div"></div>
+        <div class="col-xs-4 col-md-4 ">
+            <div class="location_outline location_selected" id="current_location_div">
+            </div>
+        </div>
     </div>
 </div>
 
@@ -49,17 +54,14 @@
     </div>
 </div>
 
-<div>
-    <table class="container ">
-        <tbody id="search_history">
 
-        </tbody>
-    </table>
+<div id="search_history" class="container ">
+
 </div>
 
 <div class="fixed-action-btn" style="bottom: 45px; right: 24px;">
     <a class="btn-floating btn-large waves-effect waves-light red" id="locate_button">
-        <i class="material-icons">定位</i>
+        <i class="material-icons">ADD</i>
     </a>
     <!--<ul>-->
     <!--<li><a class="btn-floating red"><i class="material-icons">insert_chart</i></a></li>-->

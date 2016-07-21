@@ -66,16 +66,16 @@ function initSearchedTable() {
         console.log(cityInfo);
         addressBean = JSON.parse(cityInfo);
         //console.log(JSON.stringify(addressBean));
-        var searchTd = $("<td></td>");
-        searchTd.addClass("col-md-4 col-xs-4");
-        searchTd.css("padding", "0px");
+
         var searchItem = $("<div></div>");
-        searchItem.addClass("location_outline hover");
+        searchItem.addClass("col-md-4 col-xs-4 ");
+
+        var searchItemContent = $("<div></div>");
+        searchItemContent.addClass("location_outline");
 
         (function () {
             var cityInfo2 = cityInfo;
             searchItem.click(function () {
-
                 localStorage.setItem("current_city", cityInfo2);
                 window.location.href = "index.html";
             });
@@ -83,24 +83,25 @@ function initSearchedTable() {
 
 
         if (null != addressBean.locality && "" != addressBean.locality) {
-            searchItem.html(addressBean.locality);
+            searchItemContent.html(addressBean.locality);
         } else {
-            searchItem.html(addressBean.admin_district);
+            searchItemContent.html(addressBean.admin_district);
         }
-        var searchTr = null;
+        var searchRow = null;
         if (i % 3 == 0) {
             //console.log("if..."+parseInt(i / 3));
-            searchTr = $("<tr></tr>");
+            searchRow = $("<div></div>");
+            searchRow.addClass("row");
         } else {
             //console.log("else.."+parseInt(i / 3));
-            searchTr = $(searchBody.children()[parseInt(i / 3)]);
+            searchRow = $(searchBody.children()[parseInt(i / 3)]);
+            //searchRow.addClass("row");
             //searchTr.append(searchTd);
-
         }
-        searchTd.append(searchItem);
-        searchTr.append(searchTd);
-        searchBody.append(searchTr);
-        //console.log(searchBody.children().length);
+        searchItem.append(searchItemContent);
+        searchRow.append(searchItem);
+        searchBody.append(searchRow);
+        console.log(searchBody.children().length);
     }
 }
 
@@ -193,7 +194,11 @@ function displaySearchResult(cityBean) {
     for (var i = 0; i < cityArray.length; i++) {
         addressBean = cityArray[i];
         var resultLi = document.createElement("li");
-        resultLi.innerHTML = addressBean.locality;
+        if (null != addressBean.locality && "" != addressBean.locality) {
+            resultLi.innerHTML = addressBean.locality;
+        } else {
+            resultLi.innerHTML = addressBean.admin_district;
+        }
         resultLi.setAttribute("id", "result" + i);
         resultLi.setAttribute("tag", "result_item");
         resultLi.onclick = function () {
